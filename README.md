@@ -1,11 +1,11 @@
 # VPN Connection and Disconnection Script with TOTP
 
-This repository contains two scripts for automating the connection and disconnection of VPNs using a Time-based One-Time Password (TOTP) for authentication. These scripts allow you to connect to and disconnect from specified VPNs using AppleScript, with TOTP generated using `oathtool`.
+This repository contains two scripts for automating the connection and disconnection of VPNs using a Time-based One-Time Password (TOTP) for authentication. These scripts use macOS's default VPN connection profiles and AppleScript to automate the process, with TOTP generated using `oathtool`.
 
 ## Features
 
-- **Connect to VPN**: Generates a TOTP code and connects to specified VPNs by passing the TOTP as the password.
-- **Disconnect from VPN**: Disconnects from the specified VPNs via AppleScript.
+- **Connect to VPN**: Generates a TOTP code and connects to specified VPNs using macOS's default VPN connection profiles.
+- **Disconnect from VPN**: Disconnects from the specified VPNs using AppleScript.
 - Developed and tested on **macOS Sonoma 14.7.**
 
 ## Prerequisites
@@ -59,7 +59,7 @@ Replace `<your_totp_secret>` with the secret you copied.
    ./vpn_connect.sh
    ```
 
-   This script will generate a TOTP code and attempt to connect to each VPN specified in the `VPN_NAMES` array. It will automatically enter the TOTP code in the password field when prompted.
+   This script will generate a TOTP code and attempt to connect to each VPN specified in the `VPN_NAMES` array using macOS's default VPN connection profiles. It will automatically enter the TOTP code in the password field when prompted.
 
 ### VPN Disconnection
 
@@ -73,7 +73,7 @@ Replace `<your_totp_secret>` with the secret you copied.
    ./disconnect_vpn.sh
    ```
 
-   This script will disconnect from each VPN specified in the `VPN_NAMES` array.
+   This script will disconnect from each VPN specified in the `VPN_NAMES` array using AppleScript.
 
 ## Troubleshooting
 
