@@ -1,17 +1,8 @@
 #!/bin/bash
 
 # Define variables
-OAUTH_URI="otpauth://totp/<your_email>?secret=<your_totp_secret>"  # Replace with your TOTP URI
 VPN_NAMES=("VPN1" "VPN2")  # Replace with VPN names from macOS Network Preferences. Make sure space is there between two VPN names
-
-# Extract the TOTP secret using sed
-TOTP_SECRET=$(echo "$OAUTH_URI" | sed -n 's/.*secret=\([^&]*\).*/\1/p')
-
-# Validate extraction
-if [ -z "$TOTP_SECRET" ]; then
-    echo "Error: Could not extract the TOTP secret from the URI."
-    exit 1
-fi
+TOTP_SECRET="<your_totp_secret>" # Replace your TOTP secret
 
 # Generate the TOTP code
 TOTP_CODE=$(oathtool --totp --base32 "$TOTP_SECRET")
