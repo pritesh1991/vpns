@@ -28,14 +28,14 @@ To get your TOTP secret, follow these steps:
 2. Locate the account for which you are generating a TOTP code (the VPN service in this case).
 3. **Backup your TOTP codes** in the authenticator app. This step will typically generate a backup file containing all the TOTP secrets for your accounts.
 4. Open the backup file and look for the **secret key** associated with the VPN account. It will be a string of characters (e.g., `JBSWY3DPEHPK3PXP`).
-5. Copy the TOTP secret and replace `<your_totp_secret>` in the `OAUTH_URI` variable within the `vpn_connect.sh` script.
+5. Copy the TOTP secret and replace `<your_totp_secret>`
 
 For example:
 ```bash
 OAUTH_URI="otpauth://totp/<your_email>?secret=<your_totp_secret>"
 ```
 
-Replace `<your_totp_secret>` with the secret you copied.
+Extract `<your_totp_secret>` from OAUTH_URI
 
 ## Setup
 
@@ -43,7 +43,7 @@ Replace `<your_totp_secret>` with the secret you copied.
 
 2. Modify the scripts:
    - In both `vpn_connect.sh` and `disconnect_vpn.sh`, replace the VPN names in the `VPN_NAMES` array with the names from your macOS Network Preferences (ensure there is a space between VPN names).
-   - In `vpn_connect.sh`, replace `<your_email>` and `<your_totp_secret>` in the `OAUTH_URI` variable with your own TOTP URI and secret.
+   - In `vpn_connect.sh`, replace `<your_totp_secret>`.
 
 ## Usage
 
