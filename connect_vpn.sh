@@ -56,7 +56,7 @@ EOF
 
 # Connect to each VPN in the list
 for vpn_name in "${VPN_NAMES[@]}"; do
-    connect_vpn "$vpn_name"
+    connect_vpn "$vpn_name" || true
 done
 
 echo "VPN connection script completed."
