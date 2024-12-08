@@ -1,12 +1,12 @@
 #!/bin/bash
 
 VPN_NAMES=("VPN1" "VPN2")  # Replace with VPN names from macOS Network Preferences. Make sure space is there between two VPN names
-# Function to disconnect to a VPN using AppleScript and pass TOTP as password
+# Function to disconnect to a VPN using AppleScript
 disconnect_vpn() {
     local vpn_name="$1"
     echo "Disconnecting VPN: $vpn_name"
 
-     # AppleScript to click on the VPN name in the list and enter the password dialog
+     # AppleScript to click on the VPN name in the list
     osascript <<EOF
     tell application "System Events"
         -- Open the VPN menu by clicking on the VPN menu bar icon
